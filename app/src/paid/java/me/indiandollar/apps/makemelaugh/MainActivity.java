@@ -1,14 +1,19 @@
-package com.udacity.gradle.builditbigger;
+package me.indiandollar.apps.makemelaugh;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    public static Context getContext() {
+        return getContext();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        new FetchJokeAsyncTask().execute(new Pair<Context, String>(this, null));
     }
-
-
 }
